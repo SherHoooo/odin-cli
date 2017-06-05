@@ -1,36 +1,30 @@
 {
-  "name": "vue-cli",
-  "version": "2.8.2",
-  "description": "A simple CLI for scaffolding Vue.js projects.",
+  "name": "shark-odin",
+  "version": "0.0.0",
+  "description": "Douyu FED scaffolding tool to code faster",
   "preferGlobal": true,
   "bin": {
-    "vue": "bin/vue",
-    "vue-init": "bin/vue-init",
-    "vue-list": "bin/vue-list",
-    "vue-build": "bin/vue-build"
+    "odin": "bin/odin",
+    "odin-init": "bin/odin-gen",
+    "odin-list": "bin/odin-list"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vue-cli.git"
+    "url": ""
   },
   "keywords": [
-    "vue",
+    "douyu",
+    "FED",
     "cli",
-    "spa"
+    "scaffolding"
   ],
-  "author": "Evan You",
+  "author": "Sherhoo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/vue-cli/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/vuejs/vue-cli#readme",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "npm run lint && npm run e2e && npm run e2e:build",
-    "lint": "eslint test/e2e/test*.js lib bin/* --env mocha",
-    "e2e": "rimraf test/e2e/mock-template-build && cross-env BABEL_ENV=development mocha test/e2e/test.js --slow 1000 --compilers js:babel-core/register",
-    "e2e:build": "cross-env BABEL_ENV=development mocha test/e2e/test-build.js --timeout 60000 --compilers js:babel-core/register"
-  },
+  "homepage": "",
+  "scripts": {},
   "dependencies": {
     "async": "^2.0.0-rc.2",
     "autoprefixer": "^6.6.1",
