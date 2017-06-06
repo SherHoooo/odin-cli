@@ -82,8 +82,8 @@ if (exists(to)) {
   inquirer.prompt([{
     type: 'confirm',
     message: inPlace
-      ? 'Generate project in current directory?'
-      : 'Target directory exists. Continue?',
+      ? '在当前目录中生成项目吗?'
+      : '目标目录已存在，是否继续?',
     name: 'ok'
   }], function (answers) {
     if (answers.ok) {
@@ -112,7 +112,7 @@ function run () {
       logger.fatal('Local template "%s" not found.', template)
     }
   } else {
-    checkVersion(function () { 
+    checkVersion(function () {
       if (!hasSlash) {
         // use official templates
         var officialTemplate = tempMap[template]
