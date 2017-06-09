@@ -15,7 +15,6 @@ var generate = require('../lib/generate')
 var checkVersion = require('../lib/check-version')
 var warnings = require('../lib/warnings')
 var localPath = require('../lib/local-path')
-var tempMap = require('../lib/template-map')
 
 var isLocalPath = localPath.isLocalPath
 var getTemplatePath = localPath.getTemplatePath
@@ -26,8 +25,8 @@ var getTemplatePath = localPath.getTemplatePath
 
 program
   .usage('<template-name> [project-name]')
-  .option('-c, --clone', 'use git clone')
-  .option('--offline', 'use cached template')
+  .option('-c, --clone', '使用git clone')
+  .option('--offline', '使用缓存模版')
 
 /**
  * Help.
@@ -36,8 +35,8 @@ program
 program.on('--help', function () {
   console.log('  Examples:')
   console.log()
-  console.log(chalk.gray('    # create a new project with an official template'))
-  console.log('    $ odin gen webpack my-project')
+  console.log(chalk.gray('    # 使用官方模板创建项目'))
+  console.log('    $ odin gen react-simple my-project')
   console.log()
 })
 
@@ -65,7 +64,7 @@ var clone = program.clone || false
 
 var tmp = path.join(home, '.odin-templates', template.replace(/\//g, '-'))
 if (program.offline) {
-  console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
+  console.log(`> 使用 ${chalk.yellow(tildify(tmp))}中的本地缓存`)
   template = tmp
 }
 
@@ -115,7 +114,7 @@ function run () {
     checkVersion(function () {
       if (!hasSlash) {
         // use official templates
-        var officialTemplate = tempMap[template]
+        var officialTemplate = template
         if (template.indexOf('#') !== -1) {
           downloadAndGenerate(officialTemplate)
         } else {
@@ -141,8 +140,11 @@ function run () {
  */
 
 function downloadAndGenerate (template) {
+  var origin = 'gitlab'
+  var userName = 'SherHoooo'
+  var template = `${origin}:${userName}/${template}`
   console.log(template, tmp, clone)
-  var spinner = ora('downloading template')
+  var spinner = ora('正在下载模板')
   spinner.start()
   // Remove if local template exists
   if (exists(tmp)) rm(tmp)
